@@ -28,19 +28,23 @@
 
 if( !class_exists('Dr_Slider')) {
   class Dr_Slider {
-
+    // const FEATURE_SLIDER = 'publications';
+    const PUBLICATIONS = 'publications';
     /** Construct The Plugin Object **/
     public function __construct() {
 
       // include_once( plugin_dir_path( __FILE__ ) . 'includes/slider_settings.php');
 
       //Initialize Settings
-      include_once( plugin_dir_path( __FILE__ ) . 'settings.php');
-      $DR_Slider_settings = new Dr_Slider_settings();
+      // include_once( plugin_dir_path( __FILE__ ) . 'settings.php');
+      // $DR_Slider_settings = new Dr_Slider_settings();
 
       //Register custom post types
       include_once( plugin_dir_path( __FILE__ ) . 'includes/custom_type.php');
-      $custom_post_type = new Feature_Slider();
+      $custom_post_type = new Custom_Type(self::PUBLICATIONS);
+      // $custom_price = new Custom_Type(self::PRICE_TYPE);
+      // echo $custom_post_type->content_type;
+      // echo $custom_price->content_type;
 
       //Add Shortcode params to Visual Composer
       include_once( plugin_dir_path( __FILE__ ) . 'includes/vc_setup.php');
