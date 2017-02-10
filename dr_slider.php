@@ -28,16 +28,16 @@
 
 if( !class_exists('Dr_Slider')) {
   class Dr_Slider {
-    // const FEATURE_SLIDER = 'publications';
+    // const FEATURE_SLIDE,R = 'publications';
     const PUBLICATIONS = 'publications';
     /** Construct The Plugin Object **/
     public function __construct() {
 
       // include_once( plugin_dir_path( __FILE__ ) . 'includes/slider_settings.php');
 
-      //Initialize Settings
-      // include_once( plugin_dir_path( __FILE__ ) . 'settings.php');
-      // $DR_Slider_settings = new Dr_Slider_settings();
+      // Initialize Settings
+      include_once( plugin_dir_path( __FILE__ ) . 'settings.php');
+      $DR_Slider_settings = new Dr_Slider_settings();
 
       //Register custom post types
       include_once( plugin_dir_path( __FILE__ ) . 'includes/custom_type.php');
@@ -72,8 +72,10 @@ if( !class_exists('Dr_Slider')) {
 }//end if (!class_exists('Dr_SLider'))
 
 if( class_exists('Dr_Slider')) {
+
   register_activation_hook(__FILE__, array('Dr_Slider', 'activate'));
   register_deactivation_hook(__FILE__, array('Dr_Slider', 'deactivate'));
 
   $dr_slider = new Dr_Slider();
+
 }
