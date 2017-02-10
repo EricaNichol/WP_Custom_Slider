@@ -4,43 +4,66 @@ if( !class_exists('VC_Setup') ) {
 
     public function __construct() {
       add_action( 'vc_before_init', 'dr_slider_integrateWithVC' );
-
     }
 
   }
 }
 
 /****
-  Visual Shortcode Setup
+Visual Shortcode Setup
 ****/
 function dr_slider_integrateWithVC() {
+  $rand = (string)mt_rand(0,1000);
+
+  $array = Array();
+  foreach ( get_post_types( array('public'=>true, '_builtin'=>false ) ) as $post_type ) {
+    $array[] = $post_type;
+  }
 
   vc_map( array(
-    "name" => __( "Dr Slider", "my-text-domain" ),
-    "base" => "dr_slider",
-    "class" => "",
-    "category" => __( "Content", "my-text-domain"),
+    "name"              => __( "Dr Slider", "my-text-domain" ),
+    "base"              => "dr_slider",
+    "class"             => "",
+    "category"          => __( "Content", "my-text-domain"),
     // 'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
     // 'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
-    "params" => array(
+    "params"            => array(
       array(
-        "type" => "textfield",
-        "holder" => "div",
-        "class" => "",
-        "heading" => __( "Content Type", "my-text-domain" ),
-        "param_name" => "content_type",
-        "value" => __( "Feature Slider", "my-text-domain" ),
-        "description" => __( "Type in the content type you would like to display", "my-text-domain" )
+        "type"          => "dropdown",
+        "holder"        => "div",
+        "class"         => "",
+        "heading"       => __( "Content Type"),
+        "param_name"    => "content_type",
+        "value"         => $array ,
+        "description"   => __( "Select The Content Type" )
       ),
       array(
-        "type" => "textfield",
-        "holder" => "div",
-        "class" => "",
-        "heading" => __( "Slider Speed", "my-text-domain" ),
-        "param_name" => "slider_speed",
-        "value" => __( 1, "my-text-domain" ),
-        "description" => __( "The speed you want the slider", "my-text-domain" )
-      )
+        "type"          => "dropdown",
+        "holder"        => "div",
+        "class"         => "",
+        "heading"       => __( "List View", "my-text-domain" ),
+        "param_name"    => "list_view",
+        "value"         => array('Publications'),
+        "description"   => __( "Pick the list view style to be displayed", "my-text-domain" )
+      ),
+      array(
+        "type"          => "textfield",
+        "holder"        => "div",
+        "class"         => "",
+        "heading"       => __( "Slider Speed", "my-text-domain" ),
+        "param_name"    => "slider_speed",
+        "value"         => __( 3000, "my-text-domain" ),
+        "description"   => __( "The speed you want the slider", "my-text-domain" )
+      ),
+      array(
+        "type"          => "hidden",
+        "holder"        => "hidden",
+        "class"         => "hidden_input",
+        "heading"       => __( "", "my-text-domain" ),
+        "param_name"    => "custom_id",
+        "value"         => __( $rand, "my-text-domain" ),
+        "description"   => __( "The id of the rendered shortcode", "my-text-domain" )
+        )
         )
         ) );
-    }
+      }
