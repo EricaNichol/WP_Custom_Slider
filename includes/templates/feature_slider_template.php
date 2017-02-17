@@ -1,8 +1,14 @@
 <?php
+$args = array('post_type' 		 => (string)$content_type,
+'posts_per_page' => -1,
+'orderby'        => 'menu_order',
+'order'          => 'ASC'
+);
+
 ob_start();
 ?>
 
-<div id="slider_container" class="custom_feature field_container">
+<div id="slider_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> <?php echo $view_type; ?>_container field_container custom_<?php echo $custom_id; ?>">
 	<?php
 
 	$query = new WP_Query( $args );
@@ -39,9 +45,12 @@ ob_start();
 			</div>
 		</div>
 	</div>
-</div>
+
 	<?php
-endwhile;
-$output = ob_get_clean();
-return $output;
-wp_reset_query() ?>
+		endwhile;
+		wp_reset_query();
+			$output = ob_get_clean();
+			?>
+</div>
+<?php
+	return $output;

@@ -42,25 +42,35 @@ Render Template
 ****/
 function render_slider_shortcode($atts) {
 
-	print_r($atts);
-
 	$content_type = str_replace(' ', '_' ,strtolower($atts['content_type']));
+	$custom_id    = (string)$atts['custom_id'];
+	$view_type    = str_replace(' ', '_' ,strtolower($atts['list_view']));
 
-	$args = array('post_type' 		 => (string)$content_type,
-	'posts_per_page' => -1,
-	'orderby'        => 'menu_order',
-	'order'          => 'ASC'
-);
+	// print '<pre>';
+	// print $content_type;
+	// print '</pre>';
 
-switch($content_type) {
+	// $args = array('post_type' 		 => (string)$content_type,
+	// 'posts_per_page' => -1,
+	// 'orderby'        => 'menu_order',
+	// 'order'          => 'ASC'
+	// );
+
+switch($view_type) {
 	case 'portfolio':
 		$output = 'Portfolio';
 	break;
 	case 'publications':
 		include( PLUGIN_PATH . 'templates/publications_template.php');
 	break;
+	case 'basic_list':
+		include( PLUGIN_PATH . 'templates/basic_template.php');
+	break;
+	case 'download_list':
+		include( PLUGIN_PATH . 'templates/basic_download_template.php');
+	break;
 	default:
-	include( PLUGIN_PATH . 'templates/feature_slider_template.php');
+		include( PLUGIN_PATH . 'templates/feature_slider_template.php');
 
 }
 

@@ -26,4 +26,5 @@ function enqueue_my_scripts() {
 
 function plugin_add_admin_styles() {
   wp_enqueue_style('admin-meta-boxes', plugin_dir_url(__FILE__) . '/css/admin.css' );
+  wp_enqueue_script('admin-meta-boxes', plugin_dir_url(__FILE__) .'js/CMD_attachment.js');
 }

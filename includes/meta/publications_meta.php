@@ -10,9 +10,7 @@
 		$text 				= isset($values['publication_text']) ? esc_attr($values['publication_text'][0]) : '';
 		wp_nonce_field('publication_text_nonce','publication_nonce');
 		?>
-
 		<!--  text  styling for this is admin.css -->
-
 		<div>
 			<textarea type="text" name="publication_text" id="publication_text"><?php echo $text; ?></textarea>
 		</div>

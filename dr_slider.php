@@ -30,6 +30,9 @@ if( !class_exists('Dr_Slider')) {
   class Dr_Slider {
     // const FEATURE_SLIDE,R = 'publications';
     const PUBLICATIONS = 'publications';
+    const TALKS = 'talks';
+    const PRESENTATIONS = 'presentations';
+    const SYLLABI = 'syllabi';
     /** Construct The Plugin Object **/
     public function __construct() {
 
@@ -41,10 +44,33 @@ if( !class_exists('Dr_Slider')) {
 
       //Register custom post types
       include_once( plugin_dir_path( __FILE__ ) . 'includes/custom_type.php');
-      $custom_post_type = new Custom_Type(self::PUBLICATIONS);
+      $publications     = new Custom_Type(self::PUBLICATIONS);
+      $talks            = new Custom_Type(self::TALKS);
+      $presentations    = new Custom_Type(self::PRESENTATIONS);
+      $syllabi          = new Custom_Type(self::SYLLABI);
+
+
+    	if ( $publications ) {
+    		include( PLUGIN_PATH . 'meta/publications_meta.php');
+    	}
+      if ( $feature ) {
+        include( PLUGIN_PATH . 'meta/feature_slider_meta.php');
+      }
+      if ( $presentations ) {
+        include( PLUGIN_PATH . 'meta/talks_presentations_meta.php');
+      }
+      if ( $syllabi ) {
+        include( PLUGIN_PATH . 'meta/syllabi_meta.php');
+      }
       // $custom_price = new Custom_Type(self::PRICE_TYPE);
       // echo $custom_post_type->content_type;
       // echo $custom_price->content_type;
+
+
+      include_once( plugin_dir_path( __FILE__ ) . 'includes/taxonomy_setup.php');
+      $pres_cat         = new Taxonomy_Categories(self::PRESENTATIONS);
+      $talk_cat         = new Taxonomy_Categories(self::TALKS);
+      $sy_cat           = new Taxonomy_Categories(self::SYLLABI);
 
       //Add Shortcode params to Visual Composer
       include_once( plugin_dir_path( __FILE__ ) . 'includes/vc_setup.php');

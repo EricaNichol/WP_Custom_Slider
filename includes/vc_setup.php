@@ -43,7 +43,12 @@ function dr_slider_integrateWithVC() {
         "class"         => "",
         "heading"       => __( "List View", "my-text-domain" ),
         "param_name"    => "list_view",
-        "value"         => array('Publications'),
+        "value"         => array('Publications',
+                                 'Basic List',
+                                 'Download List',
+                                 'Slider'
+
+                        ),
         "description"   => __( "Pick the list view style to be displayed", "my-text-domain" )
       ),
       array(

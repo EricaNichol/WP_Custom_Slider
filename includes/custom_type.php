@@ -43,7 +43,7 @@ if( !class_exists('Custom_Type') ) {
 				'hierarchical' 				=> true,
 				'menu_position'			 	=> 3,
 				'builtin'             => false,
-				//'taxonomies' => array( 'categories' ),
+				// 'taxonomies' => array( 'categories' ),
 				'supports' 						=> array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'custom-fields' )
 			);
 			//Register Custom Post Type.
@@ -51,6 +51,3 @@ if( !class_exists('Custom_Type') ) {
 		}
 	}
 }
-
-include( PLUGIN_PATH . 'publications_meta.php');
-include( PLUGIN_PATH . 'feature_slider_meta.php');

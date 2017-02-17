@@ -3,7 +3,6 @@
 	var php_vars;
 	$(document).ready(function(){
 
-
   });
 
 })(jQuery);
