@@ -7,7 +7,7 @@ $args = array('post_type' 		 => (string)$content_type,
 
 ob_start();
 ?>
-<div id="publications_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> <?php echo $view_type; ?>_container field_container custom_<?php echo $custom_id; ?> ">
+<div id="announcements_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> <?php echo $view_type; ?>_container field_container custom_<?php echo $custom_id; ?> ">
 	<?php
 
 	$query 						= new WP_Query( $args );
@@ -18,28 +18,27 @@ ob_start();
 		$item             = get_post($id);
 		$count 						= $count + 1;
 		$values 	   		  = get_post_meta($id);
-		$text 		        = isset($values['publication_text']) ? esc_attr($values['publication_text'][0]) : '';
+    $date             = $item->post_date;
+    $day              = date('d',strtotime($date));
+    $month            = date('M y',strtotime($date));
 		$body             = $item->post_content;
 
-		$img_url = false;
-		if (has_post_thumbnail($id)) {
-			$img_url      = get_the_post_thumbnail_url($id,'full');
-		}
+		// $img_url = false;
+		// if (has_post_thumbnail($id)) {
+		// 	$img_url      = get_the_post_thumbnail_url($id,'full');
+		// }
 	//
-	// print "<pre>";
-  // print_r(get_post($id));
-	// print "</pre>";
-	//
+
+
 	// print $img_url;
 	?>
 
-	<div class="field_item field_item_<?php echo $count; ?>">
+  <div class="field_item field_item_<?php echo $count; ?>">
 		<div class="field_container">
-			<?php if ($img_url ) : ?>
-				<div class="field_image left">
-					<img src="<?php echo $img_url; ?>">
+				<div class="field_time left">
+          <span class="field_day"><?php echo $day; ?></span>
+          <span class="field_month"><?php echo $month; ?></span>
 				</div>
-			<?php endif; ?>
 			<div class="field_content right">
 				<h4><?php the_title() ?></h4>
 				<div><?php echo $body; ?></div>

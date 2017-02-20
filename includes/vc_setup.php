@@ -15,7 +15,7 @@ Visual Shortcode Setup
 function dr_slider_integrateWithVC() {
   $rand = (string)mt_rand(0,1000);
 
-  $array = Array();
+  $array = Array('post');
   foreach ( get_post_types( array('public'=>true, '_builtin'=>false ) ) as $post_type ) {
     $array[] = $post_type;
   }
@@ -43,11 +43,12 @@ function dr_slider_integrateWithVC() {
         "class"         => "",
         "heading"       => __( "List View", "my-text-domain" ),
         "param_name"    => "list_view",
-        "value"         => array('Publications',
+        "value"         => array('Default',
+                                 'Publications',
+                                 'Announcements',
                                  'Basic List',
                                  'Download List',
                                  'Slider'
-
                         ),
         "description"   => __( "Pick the list view style to be displayed", "my-text-domain" )
       ),

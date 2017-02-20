@@ -29,10 +29,14 @@
 if( !class_exists('Dr_Slider')) {
   class Dr_Slider {
     // const FEATURE_SLIDE,R = 'publications';
-    const PUBLICATIONS = 'publications';
-    const TALKS = 'talks';
+    const PUBLICATIONS  = 'publications';
+    const TALKS         = 'talks';
     const PRESENTATIONS = 'presentations';
-    const SYLLABI = 'syllabi';
+    const SYLLABI       = 'syllabi';
+    const SERVICES      = 'services';
+    const ANNOUNCEMENTS  = 'announcements';
+    const STUDENTS      = 'students';
+
     /** Construct The Plugin Object **/
     public function __construct() {
 
@@ -40,14 +44,15 @@ if( !class_exists('Dr_Slider')) {
 
       // Initialize Settings
       include_once( plugin_dir_path( __FILE__ ) . 'settings.php');
-      $DR_Slider_settings = new Dr_Slider_settings();
+        $DR_Slider_settings = new Dr_Slider_settings();
 
       //Register custom post types
       include_once( plugin_dir_path( __FILE__ ) . 'includes/custom_type.php');
-      $publications     = new Custom_Type(self::PUBLICATIONS);
-      $talks            = new Custom_Type(self::TALKS);
-      $presentations    = new Custom_Type(self::PRESENTATIONS);
-      $syllabi          = new Custom_Type(self::SYLLABI);
+        $publications     = new Custom_Type(self::PUBLICATIONS);
+        $syllabi          = new Custom_Type(self::SYLLABI);
+        $services         = new Custom_Type(self::SERVICES);
+        $annoucements     = new Custom_Type(self::ANNOUNCEMENTS);
+        $students         = new Custom_Type(self::STUDENTS);
 
 
     	if ( $publications ) {
@@ -68,22 +73,20 @@ if( !class_exists('Dr_Slider')) {
 
 
       include_once( plugin_dir_path( __FILE__ ) . 'includes/taxonomy_setup.php');
-      $pres_cat         = new Taxonomy_Categories(self::PRESENTATIONS);
-      $talk_cat         = new Taxonomy_Categories(self::TALKS);
-      $sy_cat           = new Taxonomy_Categories(self::SYLLABI);
+        $sy_cat           = new Taxonomy_Categories(self::SYLLABI);
+        $pub_cat          = new Taxonomy_Categories(self::PUBLICATIONS);
 
       //Add Shortcode params to Visual Composer
       include_once( plugin_dir_path( __FILE__ ) . 'includes/vc_setup.php');
-      $vc_setup = new VC_Setup();
+        $vc_setup = new VC_Setup();
 
       include_once( plugin_dir_path( __FILE__ ) . 'includes/query_type.php');
-      $query_type = new Query_Type();
+        $query_type = new Query_Type();
 
     }
 
     /** Activate the plugin **/
     public static function activate() {
-
 
 
     }

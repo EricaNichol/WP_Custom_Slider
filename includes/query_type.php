@@ -57,8 +57,11 @@ function render_slider_shortcode($atts) {
 	// );
 
 switch($view_type) {
-	case 'portfolio':
-		$output = 'Portfolio';
+	case 'feature_slider':
+		include( PLUGIN_PATH . 'templates/feature_slider_template.php');
+	break;
+	case 'announcements':
+		include( PLUGIN_PATH . 'templates/annoucements_template.php');
 	break;
 	case 'publications':
 		include( PLUGIN_PATH . 'templates/publications_template.php');
@@ -70,8 +73,7 @@ switch($view_type) {
 		include( PLUGIN_PATH . 'templates/basic_download_template.php');
 	break;
 	default:
-		include( PLUGIN_PATH . 'templates/feature_slider_template.php');
-
+		include( PLUGIN_PATH . 'templates/default_template.php');
 }
 
 return $output;
