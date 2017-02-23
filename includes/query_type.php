@@ -32,8 +32,7 @@ if ( class_exists('Query_type') ) {
 Php Variables to Javascript Variables
 ****/
 function params_var_to_javascript($atts) {
-
-	wp_enqueue_script('banner_script', '../js/jquery.dr_slider.js');
+	wp_enqueue_script('banner_script', plugin_dir_url(__FILE__) . '../js/jquery.dr_slider.js');
 	wp_localize_script('banner_script', 'php_vars_'.$atts['custom_id'], $atts);
 }
 
