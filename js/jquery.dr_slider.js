@@ -1,6 +1,6 @@
 (function($){
 	'use strict';
-	var php_vars;
+	// var php_vars;
 	$(document).ready(function(){
 
   });

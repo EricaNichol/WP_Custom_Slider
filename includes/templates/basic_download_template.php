@@ -75,8 +75,8 @@ foreach ( $categories as $category ):
 	<?php
 endforeach;
 	endforeach;
+  ?>
+  </div>
+  <?php
 	$output = ob_get_clean();
-	?>
-</div>
-<?php
 		return $output;

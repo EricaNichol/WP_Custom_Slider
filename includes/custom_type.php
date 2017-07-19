@@ -1,4 +1,3 @@
-
 <?php
 define('PLUGIN_PATH', plugin_dir_path( __FILE__ ));
 
@@ -30,11 +29,17 @@ if( !class_exists('Custom_Type') ) {
 				'parent_item_colon' 	=> ''
 			);
 
+			$item = true;
+			// print $this->content_name;
+			if ($this->content_name == 'Announcements') {
+				$item = false;
+			}
+
 			//Custom Post Type Arguments
 			$args = array(
 				'labels' 							=> $labels,
 				'public' 							=> true,
-				'has_archive' 				=> true,
+				'has_archive' 				=> $item,
 				'publicly_queryable' 	=> true,
 				'show_ui' 						=> true,
 				'query_var' 					=> true,

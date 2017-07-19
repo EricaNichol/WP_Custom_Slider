@@ -48,7 +48,7 @@ function syllabi_meta_save($post_id) {
 	// Argument IF ELSE for saving
 	if(!empty($_FILES['syllabi_file']['name'])) {
 		// Setup the array of supported file types. In this case, it's just PDF.
-		$supported_types = array('application/pdf');
+		$supported_types = array('application/pdf',"application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document",'image/png');
 
 		// Get the file type of the upload
 		$arr_file_type = wp_check_filetype(basename($_FILES['syllabi_file']['name']));

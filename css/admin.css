@@ -1,6 +1,8 @@
 /* Styling for Admin Meta Boxes*/
 
-input#url_text,
+input#network_text {
+  width: 340px;
+}
 textarea#publication_text {
   width: 100%;
 }

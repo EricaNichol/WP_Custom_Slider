@@ -71,6 +71,12 @@ switch($view_type) {
 	case 'download_list':
 		include( PLUGIN_PATH . 'templates/basic_download_template.php');
 	break;
+	case 'resources':
+		include( PLUGIN_PATH . 'templates/resources_template.php');
+	break;
+	case 'category_listview':
+		include( PLUGIN_PATH . 'templates/category_listview_template.php');
+	break;
 	default:
 		include( PLUGIN_PATH . 'templates/default_template.php');
 }

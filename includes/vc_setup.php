@@ -22,6 +22,7 @@ function dr_slider_integrateWithVC() {
 
   vc_map( array(
     "name"              => __( "Dr Slider", "my-text-domain" ),
+    "icon"              => plugin_dir_url(__FILE__) . 'images/plugin_logo.png',
     "base"              => "dr_slider",
     "class"             => "",
     "category"          => __( "Content", "my-text-domain"),
@@ -44,11 +45,14 @@ function dr_slider_integrateWithVC() {
         "heading"       => __( "List View", "my-text-domain" ),
         "param_name"    => "list_view",
         "value"         => array('Default',
-                                 'Publications',
-                                 'Announcements',
-                                 'Basic List',
-                                 'Download List',
-                                 'Slider'
+                                //  'Publications',
+                                //  'Announcements',
+                                //  'Basic List',
+                                //  'Download List',
+                                //  'Resources',
+                                //  'Slider',
+                                 'Networks View',
+                                 'Category Listview'
                         ),
         "description"   => __( "Pick the list view style to be displayed", "my-text-domain" )
       ),

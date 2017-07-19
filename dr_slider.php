@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The plugin bootstrap file
  *
@@ -28,14 +27,12 @@
 
 if( !class_exists('Dr_Slider')) {
   class Dr_Slider {
-    // const FEATURE_SLIDE,R = 'publications';
-    const PUBLICATIONS  = 'publications';
-    const TALKS         = 'talks';
-    const PRESENTATIONS = 'presentations';
-    const SYLLABI       = 'syllabi';
-    const SERVICES      = 'services';
-    const ANNOUNCEMENTS  = 'announcements';
+
+    // const PUBLICATIONS  = 'publications';
     const STUDENTS      = 'students';
+    const NETWORKS      = 'networks';
+
+
 
     /** Construct The Plugin Object **/
     public function __construct() {
@@ -48,33 +45,34 @@ if( !class_exists('Dr_Slider')) {
 
       //Register custom post types
       include_once( plugin_dir_path( __FILE__ ) . 'includes/custom_type.php');
-        $publications     = new Custom_Type(self::PUBLICATIONS);
-        $syllabi          = new Custom_Type(self::SYLLABI);
-        $services         = new Custom_Type(self::SERVICES);
-        $annoucements     = new Custom_Type(self::ANNOUNCEMENTS);
+        // $publications     = new Custom_Type(self::PUBLICATIONS);
         $students         = new Custom_Type(self::STUDENTS);
+        $networks         = new Custom_Type(self::NETWORKS);
 
 
-    	if ( $publications ) {
-    		include( PLUGIN_PATH . 'meta/publications_meta.php');
+    	if ( $networks ) {
+    		include( PLUGIN_PATH . 'meta/networks_meta.php');
     	}
-      if ( $feature ) {
-        include( PLUGIN_PATH . 'meta/feature_slider_meta.php');
-      }
-      if ( $presentations ) {
-        include( PLUGIN_PATH . 'meta/talks_presentations_meta.php');
-      }
-      if ( $syllabi ) {
-        include( PLUGIN_PATH . 'meta/syllabi_meta.php');
-      }
+      // if ( $feature ) {
+      //   include( PLUGIN_PATH . 'meta/feature_slider_meta.php');
+      // }
+      // if ( $presentations ) {
+      //   include( PLUGIN_PATH . 'meta/talks_presentations_meta.php');
+      // }
+      // if ( $syllabi ) {
+      //   include( PLUGIN_PATH . 'meta/syllabi_meta.php');
+      // }
+      // if ( $resources ) {
+      //   include( PLUGIN_PATH . 'meta/resources_meta.php');
+      // }
       // $custom_price = new Custom_Type(self::PRICE_TYPE);
       // echo $custom_post_type->content_type;
       // echo $custom_price->content_type;
 
 
       include_once( plugin_dir_path( __FILE__ ) . 'includes/taxonomy_setup.php');
-        $sy_cat           = new Taxonomy_Categories(self::SYLLABI);
-        $pub_cat          = new Taxonomy_Categories(self::PUBLICATIONS);
+        $stu_cat          = new Taxonomy_Categories(self::STUDENTS);
+
 
       //Add Shortcode params to Visual Composer
       include_once( plugin_dir_path( __FILE__ ) . 'includes/vc_setup.php');

@@ -49,8 +49,8 @@ ob_start();
 	<?php
 		endwhile;
 		wp_reset_query();
-			$output = ob_get_clean();
-			?>
-</div>
+		?>
+	</div>
 <?php
+$output = ob_get_clean();
 	return $output;

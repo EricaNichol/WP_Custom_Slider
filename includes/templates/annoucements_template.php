@@ -20,7 +20,7 @@ ob_start();
 		$values 	   		  = get_post_meta($id);
     $date             = $item->post_date;
     $day              = date('d',strtotime($date));
-    $month            = date('M y',strtotime($date));
+    $month            = date('M Y',strtotime($date));
 		$body             = $item->post_content;
 
 		// $img_url = false;
@@ -49,8 +49,8 @@ ob_start();
 	<?php
 		endwhile;
 		wp_reset_query();
+		?>
+		</div>
+		<?php
 			$output = ob_get_clean();
-			?>
-</div>
-<?php
 	return $output;
