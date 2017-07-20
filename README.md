@@ -1,3 +1,6 @@
+![Alt Image Text](/includes/images/plugin_logo.png)
+
+
 # WP Custom Slider
 
 Wordpress Custom Slider with Visual Composer
