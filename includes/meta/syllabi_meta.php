@@ -70,7 +70,7 @@ function syllabi_meta_save($post_id) {
 			wp_die("The file type that you've uploaded is not a PDF.");
 		} // end if/else
 
-	} else {
+	} else if (empty($_POST['syllabi_file_url'] ) ) {
 
 //new value which is 0
 		$doc = get_post_meta($post_id, 'syllabi_file', true);
