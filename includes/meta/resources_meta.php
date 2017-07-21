@@ -111,7 +111,7 @@ function resources_meta_save($post_id) {
 			wp_die("The file type that you've uploaded is not a PDF.");
 		} // end if/else
 
-	} else {
+	} else if (empty($_POST['resources_file_url'] ) ) {
 
 //new value which is 0
 		$doc = get_post_meta($post_id, 'resources_file', true);
