@@ -14,9 +14,10 @@
  * @wordpress-plugin
  * Plugin Name:       DR Slider
  * Plugin URI:        www.codingbydave.com
- * Description:       Minimalist Slider with Title, Body, Button
+ * Description:       Themeing By CodingByDave, Create Content type and link it to an already built Template Layout.
+ *                    The main view for this template is the SLider view because Slider Revolution sucks.
  * Version:           1.0.0
- * Author:            David Lin / Richard Hung
+ * Author:            David Lin @CodingByDave
  * Author URI:        www.codingbydave.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -28,11 +29,10 @@
 if( !class_exists('Dr_Slider')) {
   class Dr_Slider {
 
-    // const PUBLICATIONS  = 'publications';
-    const STUDENTS      = 'students';
-    const NETWORKS      = 'networks';
-
-
+    const PROJECTS      = 'projects';
+    const PUBLICATIONS  = 'publications';
+    const TALKS         = 'talks';
+    const SLIDERS       = 'sliders';
 
     /** Construct The Plugin Object **/
     public function __construct() {
@@ -45,33 +45,31 @@ if( !class_exists('Dr_Slider')) {
 
       //Register custom post types
       include_once( plugin_dir_path( __FILE__ ) . 'includes/custom_type.php');
-        // $publications     = new Custom_Type(self::PUBLICATIONS);
-        $students         = new Custom_Type(self::STUDENTS);
-        $networks         = new Custom_Type(self::NETWORKS);
+        $projects         = new Custom_Type(self::PROJECTS);
+        $publications     = new Custom_Type(self::PUBLICATIONS);
+        $talks            = new Custom_Type(self::TALKS);
+        $sliders          = new Custom_Type(self::SLIDERS);
 
 
-    	if ( $networks ) {
-    		include( PLUGIN_PATH . 'meta/networks_meta.php');
-    	}
-      // if ( $feature ) {
-      //   include( PLUGIN_PATH . 'meta/feature_slider_meta.php');
-      // }
-      // if ( $presentations ) {
+    	// if ( $networks ) {
+    	// 	include( PLUGIN_PATH . 'meta/networks_meta.php');
+    	// }
+      // if ( $talks ) {
       //   include( PLUGIN_PATH . 'meta/talks_presentations_meta.php');
       // }
       // if ( $syllabi ) {
       //   include( PLUGIN_PATH . 'meta/syllabi_meta.php');
       // }
-      // if ( $resources ) {
+      // if ( $products ) {
       //   include( PLUGIN_PATH . 'meta/resources_meta.php');
       // }
       // $custom_price = new Custom_Type(self::PRICE_TYPE);
       // echo $custom_post_type->content_type;
       // echo $custom_price->content_type;
 
-
       include_once( plugin_dir_path( __FILE__ ) . 'includes/taxonomy_setup.php');
-        $stu_cat          = new Taxonomy_Categories(self::STUDENTS);
+       $pub_cat          = new Taxonomy_Categories(self::PUBLICATIONS);
+       $talk_cat         = new Taxonomy_Categories(self::TALKS);
 
 
       //Add Shortcode params to Visual Composer

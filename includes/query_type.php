@@ -56,27 +56,32 @@ function render_slider_shortcode($atts) {
 	// );
 
 switch($view_type) {
-	case 'feature_slider':
-		include( PLUGIN_PATH . 'templates/feature_slider_template.php');
-	break;
-	case 'announcements':
-		include( PLUGIN_PATH . 'templates/annoucements_template.php');
-	break;
+	// case 'feature_slider':
+	// 	include( PLUGIN_PATH . 'templates/feature_slider_template.php');
+	// break;
+	// case 'announcements':
+	// 	include( PLUGIN_PATH . 'templates/annoucements_template.php');
+	// break;
 	case 'publications':
 		include( PLUGIN_PATH . 'templates/publications_template.php');
 	break;
-	case 'basic_list':
-		include( PLUGIN_PATH . 'templates/basic_template.php');
+	case 'basic_accordion':
+		include( PLUGIN_PATH . 'templates/basic_accordion_template.php');
 	break;
-	case 'download_list':
-		include( PLUGIN_PATH . 'templates/basic_download_template.php');
+	case 'test':
+		include( PLUGIN_PATH . 'templates/feature_slider_template.php');
 	break;
-	case 'resources':
-		include( PLUGIN_PATH . 'templates/resources_template.php');
+	// case 'resources':
+	// 	include( PLUGIN_PATH . 'templates/resources_template.php');
+	// break;
+	case 'networks_view':
+		include( PLUGIN_PATH . 'templates/networks_template.php');
 	break;
+
 	case 'category_listview':
 		include( PLUGIN_PATH . 'templates/category_listview_template.php');
 	break;
+
 	default:
 		include( PLUGIN_PATH . 'templates/default_template.php');
 }

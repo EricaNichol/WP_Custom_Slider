@@ -7,7 +7,7 @@ $args = array('post_type' 		 => (string)$content_type,
 
 ob_start();
 ?>
-<div id="default_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> <?php echo $view_type; ?>_container field_container custom_<?php echo $custom_id; ?> ">
+<div id="default_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> codingbydave_<?php echo $view_type; ?>_container field_container custom_<?php echo $custom_id; ?> ">
 	<?php
 
 	$query 						= new WP_Query( $args );
@@ -35,7 +35,7 @@ ob_start();
 
 	<div class="field_item field_item_<?php echo $count; ?>">
 		<div class="field_container">
-      <h4><?php the_title() ?></h4>
+      <h4 class="field_header"><?php the_title() ?></h4>
 			<div class="field_content">
 		      <?php echo $body; ?>
 			</div>

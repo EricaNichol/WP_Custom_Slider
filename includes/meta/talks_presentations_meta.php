@@ -1,32 +1,8 @@
 <?php
-	// //Add meta boxes
-	// add_action( 'init', 'add_custom_taxonomies' );
-	// function add_custom_taxonomies() {
-	// 	$labels = array(
-	//      'name' => _x( 'Talks Categories', 'taxonomy general name' ),
-	//      'singular_name' => _x( 'Talks Category', 'taxonomy singular name' ),
-	//      'search_items' =>  __( 'Talks Category' ),
-	//      'all_items' => __( 'All Talks Category' ),
-	//      'parent_item' => __( 'Parent Talks Category' ),
-	//      'parent_item_colon' => __( 'Parent Talks Category:' ),
-	//      'edit_item' => __( 'Edit Talks Category' ),
-	//      'update_item' => __( 'Update Talks Category' ),
-	//      'add_new_item' => __( 'Add Talks Category' ),
-	//      'new_item_name' => __( 'New Talks Category' ),
-	//    );
-	//
-	//    register_taxonomy('talks_categories','talks',array(
-	//      'hierarchical' => true,
-	//      'show_ui'           => true,
-	//      'show_admin_column' => true,
-	//      'labels' => $labels
-	//    ));
-	// }
-
 
 	add_action('add_meta_boxes','url_meta_box_add');
 	function url_meta_box_add() {
-			add_meta_box('url_meta','External Media Links','url_meta_box_callback', "presentations" ,'normal','high');
+			add_meta_box('url_meta','External Media Links','url_meta_box_callback', "talks" ,'normal','high');
 	}
 
 	function url_meta_box_callback($post) {

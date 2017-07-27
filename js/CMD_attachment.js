@@ -2,12 +2,14 @@
 	'use strict';
 	$(document).ready(function(){
 
-		var items = ['syllabi','resources'];
+		var items = ['publication'];
 
 		$.each(items, function(key, val) {
 
 				// Since the link exists, we need to handle the case when the user clicks on it...
-				$('#'+ val +'_file_delete').click(function(e) {
+				$('#'+ val +'_file_delete').on('click',function(e) {
+
+					console.log('deleting file');
 
 					// We don't want the link to remove us from the current page
 					// so we're going to stop it's normal behavior.

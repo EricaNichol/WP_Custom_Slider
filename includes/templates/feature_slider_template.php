@@ -8,7 +8,7 @@ $args = array('post_type' 		 => (string)$content_type,
 ob_start();
 ?>
 
-<div id="slider_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> <?php echo $view_type; ?>_container field_container custom_<?php echo $custom_id; ?>">
+<div id="slider_<?php echo $custom_id; ?>" class="<?php echo $content_type; ?> <?php echo $view_type; ?>_container owl-carousel field_container custom_<?php echo $custom_id; ?>">
 	<?php
 
 	$query = new WP_Query( $args );
@@ -27,6 +27,7 @@ ob_start();
 		$img_url      = get_the_post_thumbnail_url($id,'full');
 		$background   = 'background-image:url(\''.$img_url. '\');';
 	}
+
 	?>
 	<div class="field_item field_item_<?php echo $count; ?> <?php echo $blk_class; ?>">
 
