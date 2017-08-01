@@ -37,3 +37,4 @@ June 20 - Added Plugin Logo , displayed in Visual Composer
 July 20th - Added OwlCarousel, with thumbnail pagination view
 
 Next - Refactor thumbnail plugin to be automatically attached to the feature slider view, with admin UI
+     - Create UI for creating post types
