@@ -26,6 +26,8 @@ function dr_slider_integrateWithVC() {
     "base"              => "dr_slider",
     "class"             => "",
     "category"          => __( "Content", "my-text-domain"),
+    "description"       => __( "CodingByDave plugin with custom built templates"),
+
     // 'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
     // 'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
     "params"            => array(
